@@ -47,7 +47,9 @@ install() {
     log::error "[$(timestamp)][package][$name] failed to get latest version ."
     return 1
   fi
-  PACKAGE_CORE_VERSION=$latest_version
+  if [ "$latest_version" != "" ];
+    PACKAGE_CORE_VERSION=$latest_version
+  fi
   log::success "[$(timestamp)][package][$name] latest version: $PACKAGE_CORE_VERSION"
 
   # files
